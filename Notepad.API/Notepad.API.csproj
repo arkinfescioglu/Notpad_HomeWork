@@ -6,6 +6,15 @@
 
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Notepad.Auth\Notepad.Auth.csproj" />
+    <ProjectReference Include="..\Notepad.EntityFramework\Notepad.EntityFramework.csproj" />
+    <ProjectReference Include="..\Notepad.Repository\Notepad.Repository.csproj" />
+    <ProjectReference Include="..\Notepad.Service\Notepad.Service.csproj" />
+    <ProjectReference Include="..\Notepad.Utilities\Notepad.Utilities.csproj" />
   </ItemGroup>
 
 </Project>

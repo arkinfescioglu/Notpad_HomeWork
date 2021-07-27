@@ -4,4 +4,15 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="JWT" Version="8.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Notepad.Dapper\Notepad.Dapper.csproj" />
+    <ProjectReference Include="..\Notepad.Domain\Notepad.Domain.csproj" />
+    <ProjectReference Include="..\Notepad.Repository\Notepad.Repository.csproj" />
+    <ProjectReference Include="..\Notepad.Utilities\Notepad.Utilities.csproj" />
+  </ItemGroup>
+
 </Project>
