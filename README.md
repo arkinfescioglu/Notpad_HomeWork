@@ -18,6 +18,31 @@ UnitOfWork Ef'de var dapper repository'e ekleme gereği duymadım Fatih Bey.
 
 Dapper Repository'ye extra servis katmnımda uzun sqllerim varsa sqllerimi ayrı bir static sınıfın içinden çağırıyorum bu yönteme tam emin olamadım. Static ileride performans sorunu yaratır mı falan. 
 Ama en azından servis katmanımda dapper repo kullanırken sql cümlelerim çok uzun olduğu zaman kalabalık ve yoğun kod olduğu için ayrı yerlerde tutuyorum okunabilirlik artıyor.
+Örneğin:
+public static class UserSql
+    {
+        public const string GetById = @"SELECT 
+                                              Users.*,
+                                              Cities.Id as CityId,
+                                              Cities.CityName
+                                        FROM Users
+                                        INNER JOIN Cities ON 
+                                        Users.CityId = Cities.Id
+                                        WHERE Users.Id=@Id";
+
+        public const string GetAllAuthorNotesSql = @"SELECT 
+                                                            Notes.Id,
+                                                            Notes.CategoryId,
+                                                            Notes.NoteTitle,
+                                                            Notes.NoteContent,
+                                                            NoteCategories.NoteCategoryTitle as NoteCategoryName
+                                                    FROM Notes 
+                                                    INNER JOIN NoteCategories
+                                                    ON Notes.CategoryId = NoteCategories.Id
+                                                    WHERE Notes.UserId = @UserId";
+    }
+	
+Dapper yazarken parametre kullanmaya özen gösteriyorum hatta her şeyde parametre kullanıyorum allah korusun sql injection yeriz falan DByi elimize almayalım :D
 
 ##TODO
 
