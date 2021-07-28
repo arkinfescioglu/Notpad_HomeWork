@@ -32,7 +32,13 @@ namespace Notepad.API.StartupExtensions
                         
                         services.AddSwaggerGen(c =>
                         {
-                            c.SwaggerDoc("v1", new OpenApiInfo { Title = "Notepad.Api", Version = "v1" });
+                            c.SwaggerDoc("v1", new OpenApiInfo { Title = "Notepad.Api", Version = "v1", 
+                                    Description = @"Bu Projede EntityFramework 6 kullandım. Tek gereken EntityFramework
+                                                    Katmanında dotnet ef database update yazmanız yeterli. Ancak
+                                                    Connection Stringi alışılmışın dışında yaptım. Utilities katmanında
+                                                    Config DatabaseConfig Sınıfından Çekiyorum. 
+                                                    Auth ve Jwt Sisteminde Identity ya da her hangi bir 
+                                                    eklenti kullanmadım. Yapıyı kendim yazdım." });
                             
                             c.DocInclusionPredicate((docName, description) => true);
                             
@@ -40,7 +46,7 @@ namespace Notepad.API.StartupExtensions
                             
                             c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
                             {
-                                    Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+                                    Description = "Auth Olduktan Sonra  Value Kısımına Bearer JwtToken Yazıp Auth işlemi gerçekleşir.",
                                     Name = "Authorization",
                                     BearerFormat = "JWT",
                                     Scheme = "Bearer",
