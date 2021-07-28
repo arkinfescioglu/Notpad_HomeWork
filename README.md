@@ -6,7 +6,8 @@ Bu Projede EntityFramework 6 ile Dapper kullandım. Tek gereken Notepad.EntityFr
 Katmanında dotnet ef database update yazmanız yeterli. 
 Ancak Connection Stringi alışılmışın dışında yaptım. Notepad.Utilities katmanında
 Config Klasörü içerisinde DatabaseConfig.cs dosyasında bulunan static DatabaseConfig Sınıfından Çekiyorum. 
-Auth ve Jwt Sisteminde Identity ya da her hangi bir eklenti kullanmadım. Yapıyı kendim yazdım.
+Auth ve Jwt Sisteminde Identity ya da her hangi bir eklenti kullanmadım. Yapıyı kendim yazdım. Yapıya Notepad.Auth katmanından ulaşabilirsiniz.
+role permission sistemide var bitmedi tam ama kullanmıyorum şimdilik. Bir de Injection demişsiniz ödevde hocam :D full tonle inject var :D
 
 ##EntityFramework
 
