@@ -71,7 +71,7 @@ namespace Notepad.API.Controllers.Notes
             await (new NoteUpdateValidation(noteUpdateInputDto, _efUnitOfWork)).Validate();
 
             var getAuthorId = _apiAuth.GetId();
-
+            
             await _noteService
                     .UpdateByIdAsync(id, noteUpdateInputDto, getAuthorId);
 

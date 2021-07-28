@@ -1,4 +1,5 @@
 ﻿using System;
+using Notepad.Domain.Base.Dto;
 
 namespace Notepad.Service.Notes.Dtos.Inputs
 {

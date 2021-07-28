@@ -10,5 +10,12 @@
                                            INNER JOIN NoteCategories
                                            ON Notes.CategoryId = NoteCategories.Id
                                            WHERE Notes.Id = @Id";
+
+        public const string updateById = @"UPDATE Notes SET
+                                           Notes.CategoryId=@CategoryId,
+                                           Notes.NoteTitle=@NoteTitle,
+                                           Notes.NoteContent=@NoteContent,
+                                           Notes.ModifiedDate=@ModifiedDate
+                                           WHERE Notes.Id=@Id";
     }
 }

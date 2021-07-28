@@ -11,6 +11,7 @@ using Notepad.Service.Notes.Sql;
 using Notepad.Service.Users;
 using Notepad.Service.Users.Sql;
 using Notepad.Utilities.Exceptions.Api;
+using Notepad.Utilities.Helpers;
 using Notepad.Utilities.Messages;
 using Notepad.Utilities.Result;
 
@@ -88,11 +89,15 @@ namespace Notepad.Service.Notes
 
             try
             {
-                var noteUpdateMapper = _mapper.Map<Note>(noteUpdateInputDto);
-
-                await _efUnitOfWork.Notes
-                                   .AddAsync(noteUpdateMapper)
-                                   .ContinueWith(t => _efUnitOfWork.SaveAsync());
+                await _noteDapperRepository.ExecuteAsync(NotesSql.updateById, new
+                {
+                        Id           = id,
+                        CategoryId   = noteUpdateInputDto.CategoryId,
+                        NoteTitle    = Helpers.CleanHtml(noteUpdateInputDto.NoteTitle),
+                        NoteContent  = noteUpdateInputDto.NoteContent,
+                        ModifiedDate = DateTime.Now,
+                        UserId       = authorId
+                });
                 return true;
             }
             catch ( Exception e )
