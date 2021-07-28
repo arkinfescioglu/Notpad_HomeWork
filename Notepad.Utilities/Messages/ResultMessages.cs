@@ -5,6 +5,8 @@
         public static string SystemError = "Şu an bu işlemi gerçekleştiremiyoruz. Lütfen daha sonra tekrar Deneyin.";
         
         public static string Success = "İşlem Başarılı.";
+
+        public static string MissingParameter = "Eksik Parametre";
         
         public static string Error = "İşlem Başarısız.";
         

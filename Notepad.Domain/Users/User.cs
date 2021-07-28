@@ -20,7 +20,6 @@ namespace Notepad.Domain.Users
         [ MaxLength(UserLength.MaxEmail) ]     public string   Email     { get; set; }
         [ MaxLength(UserLength.MaxUsername) ]  public string   Username  { get; set; }
         public                                        string   Password  { get; set; }
-        [ MaxLength(UserLength.MaxAddress) ] public   string   Address   { get; set; }
         public                                        int      LoginHit  { get; set; }
         public                                        DateTime LastLogin { get; set; }
         public                                        Guid ?   CityId    { get; set; }

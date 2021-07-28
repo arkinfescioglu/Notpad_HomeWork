@@ -7,7 +7,6 @@
         public const int MaxEmail     = 60;
         public const int MaxFirstName = 60;
         public const int MaxLastName  = 60;
-        public const int MaxAddress   = 500;
         public const int MinPassword  = 6;
     }
 }

@@ -26,7 +26,7 @@ namespace Notepad.API.StartupExtensions
 
             app.CustomUseExceptionHandle();
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
 
             app.UseRouting();
 

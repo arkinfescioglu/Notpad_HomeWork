@@ -27,7 +27,7 @@ namespace Notepad.Auth.Api
 
         private readonly IEfUnitOfWork _efUnit;
 
-        private readonly IDapperRepository<User> _UserDapperRepository;
+        private readonly IDapperRepository<User> _userDapperRepository;
 
         private Dictionary<string, string> Payload { get; set; }
 
@@ -39,7 +39,7 @@ namespace Notepad.Auth.Api
         {
             _httpContext               = httpContext;
             _efUnit                    = efUnit;
-            _UserDapperRepository = userDapperRepository;
+            _userDapperRepository = userDapperRepository;
         }
 
         #endregion
@@ -120,7 +120,7 @@ namespace Notepad.Auth.Api
         {
             Dictionary<string, string> payloads;
             
-            if ( token == null )
+            if ( token != null )
             {
                 payloads = _jwtToken.DecodeToObject(token);
             }
@@ -171,7 +171,7 @@ namespace Notepad.Auth.Api
                     password = authLoginInputDto.Password
             };
             
-            return await _UserDapperRepository.QueryFirstAsync(AutSql.getUserByUsernameOrEmailQuery, sqlParams);
+            return await _userDapperRepository.QueryFirstAsync(AutSql.getUserByUsernameOrEmailQuery, sqlParams);
         }
 
         #endregion
@@ -219,7 +219,9 @@ namespace Notepad.Auth.Api
             if ( _httpContext.HttpContext == null )
                 throw new ApiAuthException("Lütfen Üye Girişi Yapınız");
 
-            return _httpContext.HttpContext.Request.Headers["Authorization"];
+            var res1 = _httpContext.HttpContext.Request.Headers["Authorization"];
+            var res2 = res1;
+            return res2;
         }
 
         #endregion

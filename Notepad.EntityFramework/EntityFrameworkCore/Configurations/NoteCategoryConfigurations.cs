@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Notepad.Domain.NoteCategories;
+using Notepad.EntityFramework.EntityFrameworkCore.Seeder;
 
 namespace Notepad.EntityFramework.EntityFrameworkCore.Configurations
 {
@@ -31,6 +32,12 @@ namespace Notepad.EntityFramework.EntityFrameworkCore.Configurations
             #region Table Name
 
             builder.ToTable("NoteCategories");
+
+            #endregion
+
+            #region Seeder
+
+            builder.HasData(NoteCategorySeeder.Run());
 
             #endregion
         }
