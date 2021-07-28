@@ -3,7 +3,10 @@
     public static class NotesSql
     {
         public const string getByIdSql = @"SELECT 
-                                                Notes.*,
+                                                Notes.Id,
+                                                Notes.NoteTitle,
+                                                Notes.NoteContent,
+                                                Notes.CategoryId,
                                                 NoteCategories.Id as CategoryId,
                                                 NoteCategories.NoteCategoryTitle as NoteCategoryName
                                            FROM Notes
