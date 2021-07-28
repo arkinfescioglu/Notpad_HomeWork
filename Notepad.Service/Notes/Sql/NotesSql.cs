@@ -8,7 +8,7 @@
                                                 NoteCategories.NoteCategoryTitle as NoteCategoryName
                                            FROM Notes
                                            INNER JOIN NoteCategories
-                                           ON Notes.Id = NoteCategories.Id
+                                           ON Notes.CategoryId = NoteCategories.Id
                                            WHERE Notes.Id = @Id";
     }
 }

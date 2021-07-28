@@ -128,6 +128,7 @@ namespace Notepad.Service.Notes
                     Id=id
             });
 
+            // var res = get;
             return new DataResult<NoteInfoOutDto>().Success(get);
         }
         
